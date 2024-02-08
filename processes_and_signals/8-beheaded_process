@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This Bash script kills the process 7-highlander.
 
-kill "$(pgrep -f invincible)"
+kill -9 "$(pgrep -f invincible)"
