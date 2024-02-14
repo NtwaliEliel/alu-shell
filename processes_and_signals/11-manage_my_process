@@ -32,9 +32,13 @@ stop()
 
 restart()
 {
-	stop
-	start
-	echo "$PROCESS_NAME restarted"
+	   if [ -e "$PID_FILE" ]; then
+		   kill -9 "$(cat "$PID_FILE")" > /dev/null 2>&1 
+		   rm "$PID_FILE"
+	   fi
+	   
+	   ./manage_my_process > /dev/null 2>&1
+	   echo "$PROCESS_NAME restarted"
 }
 
 usage() 
