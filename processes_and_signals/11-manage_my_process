@@ -12,7 +12,7 @@ start()
 		exit 1
 	fi
 	
-	./manage_my_processs.sh &
+	./manage_my_processs &
 	echo $! > "$PID_FILE"
 	echo"$PROCESS_NAME started"
 }
@@ -57,6 +57,7 @@ if [ "$#" -eq 1 ]; then
 		*)
 			usage
 			;;
-		else
-			usage
+	esac
+else
+	usage
 fi
