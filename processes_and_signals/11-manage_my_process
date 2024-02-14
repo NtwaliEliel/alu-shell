@@ -13,7 +13,7 @@ start()
 		exit 1
 	fi
 	
-	./manage_my_processs
+	./manage_my_process &
 	echo $! > "$PID_FILE"
 	echo "$PROCESS_NAME started"
 }
@@ -33,7 +33,9 @@ stop()
 
 restart()
 {
-	   echo "$PROCESS_NAME restarted"
+	stop > /dev/null 2>&1
+	start > /dev/null 2>&1
+	echo "$PROCESS_NAME restarted"
 }
 
 usage() 
