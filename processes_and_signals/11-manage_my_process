@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # This Bash (init) script manages manage_my_process.
 
-SCRIPT_NAME=$(basename "$0")
 PID_FILE="/var/run/my_process.pid"
 PROCESS_NAME="manage_my_process"
 
@@ -40,15 +39,14 @@ restart()
 
 usage() 
 {
-	echo "Usage: $SCRIPT_NAME {start|stop|restart}"
+	echo "Usage: $PROCESS_NAME {start|stop|restart}"
 	exit 1
 }
 
-if [ "$#" -eq 1 ]; then
-	case "$1" in
-		start)
-			start
-			;;
+case "$1" in
+	start)
+		start
+		;;
 		stop)
 			stop
 			;;
@@ -59,6 +57,3 @@ if [ "$#" -eq 1 ]; then
 			usage
 			;;
 	esac
-else
-	usage
-fi
