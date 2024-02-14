@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # This Bash (init) script manages manage_my_process.
 
+SCRIPT_NAME=$(basename "$0")
 PID_FILE="/var/run/my_process.pid"
 PROCESS_NAME="manage_my_process"
-SCRIPT_NAME=$(basename "$0")
 
 start() 
 {
