@@ -14,16 +14,17 @@ start()
 	
 	./manage_my_process &
 	echo $! > "$PID_FILE"
-	echo "$PROCESS_NAME started"
+	echo -n "$PROCESS_NAME started"
 }
 
 stop() 
 {
 	if [ -e "$PID_FILE" ];
 	then
+		echo "$PROCESS_NAME stopped"
 		kill -9 "$(cat "$PID_FILE")"
 		rm "$PID_FILE"
-		echo "$PROCESS_NAME stopped"
+		echo "Good"
 	else
 		echo "$PROCESS_NAME is not running."
 		exit 1
