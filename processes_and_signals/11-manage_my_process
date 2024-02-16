@@ -32,8 +32,7 @@ stop()
 
 restart()
 {
-	stop
-	start
+	./manage_my_process &
 	echo "$PROCESS_NAME restarted"
 }
 
