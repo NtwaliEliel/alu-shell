@@ -12,7 +12,7 @@ start()
 		exit 1
 	fi
 	
-	{ ./manage_my_process > /dev/null 2>&1 & }
+	 ./manage_my_process > /dev/null 2>&1 &
 	echo $! >"$PID_FILE"
 	echo "$PROCESS_NAME started"
 }
@@ -22,7 +22,7 @@ stop()
 	if [ -e "$PID_FILE" ];
 	then
 		kill -9 "$(cat "$PID_FILE")"
-		rm -r $PID_FILE
+		rm PID_FILE
 		echo "$PROCESS_NAME stopped"
 	else
 		echo "$PROCESS_NAME is not running."
