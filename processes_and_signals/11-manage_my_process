@@ -22,7 +22,7 @@ stop()
 	if [ -e "$PID_FILE" ];
 	then
 		kill -9 "$(cat "$PID_FILE")"
-		rm "$PID_FILE"
+		rm -r "$PID_FILE"
 		echo "$PROCESS_NAME stopped"
 	else
 		echo "$PROCESS_NAME is not running."
