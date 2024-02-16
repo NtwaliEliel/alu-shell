@@ -45,7 +45,6 @@ usage()
 case "$1" in
 	start)
 		start
-		./$PROCESS_NAME &
 		;;
 		stop)
 			stop
