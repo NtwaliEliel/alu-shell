@@ -12,7 +12,7 @@ start()
 		exit 1
 	fi
 	
-	 ./"$PROCESS_NAME" | grep -v '\[Got\]' > /dev/null 2>&1 & &
+	 ./"$PROCESS_NAME" | grep -v '\[Got\]' > /dev/null 2>&1 &
 	echo $! > "$PID_FILE"
 	echo "$PROCESS_NAME started"
 }
