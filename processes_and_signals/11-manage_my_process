@@ -19,9 +19,9 @@ start()
 
 stop() 
 {
-	if [ -e "$PID_FILE" ];
+	if [ -f "$PID_FILE" ];
 	then
-		kill -9 "$(cat "$PID_FILE")"
+		kill -TERM "$(cat "$PID_FILE")"
 		rm $PID_FILE
 		echo "$PROCESS_NAME stopped"
 	else
@@ -32,8 +32,11 @@ stop()
 
 restart()
 {
-	kill -9 "$(cat "$PID_FILE")"
+	if [ -f "$PID_FILE" ];
+        then
+                kill -TERM "$(cat "$PID_FILE")"
                 rm "$PID_FILE"
+	fi
 	./manage_my_process &
 	 echo $! > "$PID_FILE"
 	echo "$PROCESS_NAME restarted"
