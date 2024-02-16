@@ -13,8 +13,16 @@ start()
 	fi
 	
 	./manage_my_process &
-	echo $! > "$PID_FILE"
-	echo "$PROCESS_NAME started"
+	
+	    PID=$!
+
+    if [ -n "$PID" ]; then
+        echo "$PROCESS_NAME started with PID: $PID"
+        echo $PID > "$PID_FILE"
+    else
+        echo "Failed to start $PROCESS_NAME."
+        exit 1
+    fi
 }
 
 stop() 
