@@ -32,8 +32,6 @@ stop()
 
 restart()
 {
-	stop > /dev/null 2>&1
-	start > /dev/null 2>&1
 	echo "$PROCESS_NAME restarted"
 }
 
