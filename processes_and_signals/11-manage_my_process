@@ -12,7 +12,7 @@ start()
 		exit 1
 	fi
 	
-	./manage_my_process
+	./manage_my_process &
 	echo $! > "$PID_FILE"
 	echo "$PROCESS_NAME started"
 }
